@@ -31,6 +31,7 @@ public class AlertDialogMakerActivity extends AppCompatActivity {
         maker = new AlertDialogMaker(AlertDialogMakerActivity.this);
         view = LayoutInflater.from(getApplicationContext()).inflate(R.layout.custom_alert, null, false);
         editText = view.findViewById(R.id.editTextCustomAlert);
+        // wlee
 
         makerCustomAlert.customAlert(view, "ok", new DialogInterface.OnClickListener() {
             @Override
