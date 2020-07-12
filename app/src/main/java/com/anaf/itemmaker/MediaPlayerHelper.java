@@ -79,8 +79,8 @@ public class MediaPlayerHelper extends ContextWrapper {
         }
     }
 
-    public void setDataSource(int resId) throws IOException {
-        String path = "android.resource://" + getPackageName() + "/" + resId;
+    public void setDataSource(int rawId) throws IOException {
+        String path = "android.resource://" + getPackageName() + "/" + rawId;
         Uri uri = Uri.parse(path);
         mediaPlayer.setDataSource(getApplicationContext(), uri);
         dataSourceUri = path;

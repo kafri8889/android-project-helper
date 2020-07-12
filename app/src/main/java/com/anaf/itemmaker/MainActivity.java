@@ -17,13 +17,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.io.IOException;
 
 public class MainActivity extends AppCompatActivity {
-    Button buttonNottif, buttonPlay, buttonStop;
-    TextView textViewDuration;
-
-    NotificationMaker notificationMaker;
-    NotificationMaker.Channel notificationChannel;
-    MediaPlayerHelper mediaPlayerHelper;
-    OtherHelper otherHelper;
+    Button buttonNotificationMaker, buttonMediaPlayerHelper, buttonHardwareHelper, buttonOtherHelper,
+    buttonAlertDialogMaker;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,31 +26,54 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         init();
 
-        otherHelper = new OtherHelper(getApplicationContext());
-        otherHelper.textToSpeechInit();
-
-        buttonNottif.setOnClickListener(new View.OnClickListener() {
+        buttonNotificationMaker.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent i = new Intent(getApplicationContext(), NotificationHelperActivity.class);
+                startActivity(i);
+                finish();
             }
         });
 
-        buttonPlay.setOnClickListener(new View.OnClickListener() {
+        buttonMediaPlayerHelper.setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onClick(View v) {
-                
+                Intent i = new Intent(getApplicationContext(), MediaPlayerHelperActivity.class);
+                startActivity(i);
+                finish();
             }
         });
 
-        buttonStop.setOnClickListener(new View.OnClickListener() {
+        buttonHardwareHelper.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
             }
         });
 
+        buttonAlertDialogMaker.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        buttonOtherHelper.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        buttonAlertDialogMaker.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i= new Intent(getApplicationContext(), AlertDialogMakerActivity.class);
+                startActivity(i);
+                finish();
+            }
+        });
 
     }
 
@@ -66,9 +84,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void init() {
-        buttonNottif = findViewById(R.id.buttonNotif);
-        buttonPlay = findViewById(R.id.buttonPlay);
-        buttonStop = findViewById(R.id.buttonStop);
-        textViewDuration = findViewById(R.id.textViewDuration);
+        buttonNotificationMaker = findViewById(R.id.buttonNotificationMaker);
+        buttonMediaPlayerHelper = findViewById(R.id.buttonMediaPlayerHelper);
+        buttonHardwareHelper = findViewById(R.id.buttonHardWareHelper);
+        buttonOtherHelper = findViewById(R.id.buttonOtherHelper);
+        buttonAlertDialogMaker = findViewById(R.id.buttonAlertDialogMaker);
     }
 }

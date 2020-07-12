@@ -85,7 +85,7 @@ public class NotificationMaker extends ContextWrapper {
         manager.notify(0, builder.build());
     }
 
-    public void inboxStyleNotification(Class activityClass, String title, String text, String bigContenttitle, int line, String[] lineMessage, String summaryText, String textIconActivity, int iconActivity, int smallIconResId) {
+    public void inboxStyleNotification(Class activityClass, String title, String text, String bigContentTitle, String[] lineMessage, String summaryText, String textIconActivity, int iconActivity, int smallIconResId) {
         Intent intent = new Intent(getApplicationContext(), activityClass);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
 
@@ -93,9 +93,9 @@ public class NotificationMaker extends ContextWrapper {
 
         NotificationCompat.InboxStyle inboxStyle = new NotificationCompat.InboxStyle();
 
-        inboxStyle.setBigContentTitle(bigContenttitle);
-        for (int i = 0; i < line; i++) {
-            inboxStyle.addLine(lineMessage[i]);
+        inboxStyle.setBigContentTitle(bigContentTitle);
+        for (String s : lineMessage) {
+            inboxStyle.addLine(s);
         }
         inboxStyle.setSummaryText(summaryText);
 
@@ -246,7 +246,7 @@ public class NotificationMaker extends ContextWrapper {
             manager.notify((int) System.currentTimeMillis(), builder.build());
         }
 
-        public void inboxStyleNotification(Class activityClass, String title, String text, String bigContenttitle, int line, String[] lineMessage, String summaryText, String textIconActivity, int iconActivity, int smallIconResId) {
+        public void inboxStyleNotification(Class activityClass, String title, String text, String bigContenttitle, String[] lineMessage, String summaryText, String textIconActivity, int iconActivity, int smallIconResId) {
             Intent intent = new Intent(getApplicationContext(), activityClass);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
 
@@ -255,8 +255,8 @@ public class NotificationMaker extends ContextWrapper {
             NotificationCompat.InboxStyle inboxStyle = new NotificationCompat.InboxStyle();
 
             inboxStyle.setBigContentTitle(bigContenttitle);
-            for (int i = 0; i < line; i++) {
-                inboxStyle.addLine(lineMessage[i]);
+            for (String s : lineMessage) {
+                inboxStyle.addLine(s);
             }
             inboxStyle.setSummaryText(summaryText);
 
